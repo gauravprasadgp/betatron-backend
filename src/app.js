@@ -14,7 +14,7 @@ const options={
     useNewUrlParser:true,
     useUnifiedTopology:true,
     useFindAndModify:true,
-    poolsize:10
+    useCreateIndex: true,
 };
 mongoose.connect(uri,options).then(()=>{
     console.log("Database Connected");
