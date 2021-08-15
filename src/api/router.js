@@ -12,7 +12,7 @@ router.use(function timeLog(req, res, next) {
     next()
 })
 
-router.get("/", auth,(req, res) => {
+router.get("/",(req, res) => {
     res.send("Hello Gaurav")
 })
 
