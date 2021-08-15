@@ -32,15 +32,26 @@ contact_info:{
     maxlength: 100,
     uniqueCaseInsensitive: true,
 },
-location:[{
+tags:{
+    type:[String],
+    required: true
+ },
+category:{
+    type:String,
+    trim:true,
+    required:[true,"Category is Required"],
+    maxlength: 100,
+    uniqueCaseInsensitive:true
+},
+location:{
     latitude:{type:String},
     longitude:{type:String}
-}],
+},
 })
 
 EntityModel.plugin(uniqueValidator, {
     message: 'Error, expected {PATH} to be unique.'
   });
-EntityModel.plugin(mongoose_fuzzy_searching, { fields: ['name', 'owner','visible_location','contact_info','location'] });
+EntityModel.plugin(mongoose_fuzzy_searching, { fields: ['name','category','owner','visible_location','contact_info'] });
 
 module.exports = mongoose.model('Entity',EntityModel);
