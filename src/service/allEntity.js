@@ -4,18 +4,11 @@ var allEntity = (req,res ) =>{
     entity.find({category:category}, (err, result) => {
         if (err) {
             console.log(err);
-            res.json({
-                status: 400,
-                success: false,
-                err: err
-            })
+        res.status(400);
+        res.send(err);
         }
         else {
-            res.json({
-                status: 200,
-                success: true,
-                data:result
-            })
+            res.send(result);
         }
     })
 }

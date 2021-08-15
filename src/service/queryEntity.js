@@ -4,19 +4,13 @@ var queryEntity = (req,res ) =>{
     entity.fuzzySearch(entity_to_find, (err, doc) => {
         if (err) {
             console.log(err);
-            res.json({
-                status: 400,
-                success: false,
-                err: err
-            })
+            res.status(400);
+            res.send(err);
         }
         else {
-            res.json({
-                status: 200,
-                success: true,
-                data:doc
-            })
+        res.status(200);
+         res.send(doc);
         }
-    })
+        })
 }
 module.exports = queryEntity
